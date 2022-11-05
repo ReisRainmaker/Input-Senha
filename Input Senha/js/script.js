@@ -2,25 +2,25 @@
 const tela = document.querySelector('.tela')
 const keys = tela.querySelector('.keys')
 let display = document.querySelector('.display')
-display.textContent = (' ')
+display.innerText = (' ')
 keys.addEventListener('click', e => {
-     if (display.textContent === 'Salvo'){
-        display.textContent = (' ')}
+     if (display.innerText === 'Salvo'){
+        display.innerText = (' ')}
      if (e.target.matches('button')) {
     const key = e.target
     const action = key.dataset.action
-    const keyContent = key.textContent
-    const displayedNum = display.textContent
+    const keyContent = key.innerText
+    const displayedNum = display.innerText
     
     
         if (!action) {
-            console.log(display.textContent.length)
-            if(display.textContent.length<7) {
+            console.log(display.innerText.length)
+            if(display.innerText.length<7) {
                 console.log('numero')
                 if (displayedNum === '0') {
-                    display.textContent = keyContent
+                    display.innerText = keyContent
                 }else {
-                    display.textContent = displayedNum + keyContent
+                    display.innerText = displayedNum + keyContent
                 }
             }else{
                 alert("Quantidade de digitos alcançada")
@@ -28,13 +28,13 @@ keys.addEventListener('click', e => {
             }   
         }
         if (action === 'apagar') {
-            display.textContent = (' ')
+            display.innerText = display.innerText.slice(0, -1)
             console.log('key apagar!')
         }
         
         if (action === 'enviar') {
-            let senha = display.textContent
-            display.textContent = ('Salvo')
+            let senha = display.innerText
+            display.innerText = ('Salvo')
             console.log('key enviar!')
             console.log('Sua senha foi salva como:'+senha)
         }
